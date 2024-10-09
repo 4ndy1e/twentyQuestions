@@ -38,9 +38,10 @@ node* insert(node* root, int data, char* question, char* guess) {
     return root;
   }
   else if(data < root->data) {
-    return insert(root->left, data, question, guess);
+    root->left = insert(root->left, data, question, guess);
   }
   else {
-    return insert(root->right, data, question, guess);
+    root->right = insert(root->right, data, question, guess);
   }
+  return root;
 }
