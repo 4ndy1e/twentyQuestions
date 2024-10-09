@@ -21,7 +21,7 @@ void playGame(node* root) {
   printf("%s\n", root->question);
   printf("y/n: ");
   scanf(" %c", &choice);
-  
+
   if(choice == 'y') {
     playGame(root->left);
   }
@@ -40,6 +40,7 @@ int main() {
 
   // play game
   while(choice != 'q') {
+    printf("You think of a fruit or vegetable and I will try to guess it!\n");
     playGame(game_tree);
     printf("Press 'q' to quit or any other key to continue: ");
     scanf(" %c", &choice);
