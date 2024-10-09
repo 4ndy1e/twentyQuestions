@@ -3,16 +3,25 @@
 #include "bst.h"
 
 void playGame(node* root) {
-  printf("%s\n", root->question);
-
   char choice;
+  // check if guess is available
+  if(root->left==NULL && root->right == NULL) {
+    printf("%s\n", root->guess);
+    printf("y/n: ");
+    scanf(" %c", &choice);
+
+    if(choice == 'y') {
+      printf("I win!\n");
+    }
+    return;
+  }
+
+  // prompt question
+  printf("%s\n", root->question);
   printf("y/n: ");
   scanf(" %c", &choice);
 
-  if(root->left==NULL && root->right == NULL) {
-    printf("%s\n", root->guess);
-  }
-  else if(choice == 'y') {
+  if(choice == 'y') {
     playGame(root->left);
   }
   else {
@@ -23,19 +32,15 @@ void playGame(node* root) {
 int main() {
   node* game_tree = create_game_tree();
 
-  // if (game_tree != NULL) {
-  //   printf("%d\n", game_tree->left->data);
-  //   printf("%s\n", game_tree->left->question);
-  // } else {
-  //   printf("Failed to create game tree\n");
-  // }
-
   char choice;
   printf("Welcome! Press 'q' to quit or any other key to continue:\n");
   scanf("%c", &choice);
 
-
   while(choice != 'q') {
     playGame(game_tree);
+    printf("Press 'q' to quit or any other key to continue: ");
+    scanf(" %c", &choice);
   }
+
+  printf("Bye Bye !");
 }
