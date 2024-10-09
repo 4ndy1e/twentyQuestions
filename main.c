@@ -13,7 +13,9 @@ void playGame(node* root) {
 
     if(choice == 'y') {
       printf("I win!\n");
+      return;
     }
+    printf("You Win!\n");
     return;
   }
 
