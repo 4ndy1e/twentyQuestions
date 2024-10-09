@@ -4,6 +4,7 @@
 
 void playGame(node* root) {
   char choice;
+
   // check if guess is available
   if(root->left==NULL && root->right == NULL) {
     printf("%s\n", root->guess);
@@ -20,7 +21,7 @@ void playGame(node* root) {
   printf("%s\n", root->question);
   printf("y/n: ");
   scanf(" %c", &choice);
-
+  
   if(choice == 'y') {
     playGame(root->left);
   }
@@ -31,11 +32,13 @@ void playGame(node* root) {
 
 int main() {
   node* game_tree = create_game_tree();
-
+  
+  // begin game
   char choice;
   printf("Welcome! Press 'q' to quit or any other key to continue:\n");
   scanf("%c", &choice);
 
+  // play game
   while(choice != 'q') {
     playGame(game_tree);
     printf("Press 'q' to quit or any other key to continue: ");
