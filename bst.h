@@ -13,6 +13,6 @@ typedef struct node {
 }node;
 
 node* create_game_tree();
-node* insert(node* root, int data, char* question);
+node* insert(node* root, int data, char* question, char* guess);
 
 #endif
